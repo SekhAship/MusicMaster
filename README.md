@@ -1,3 +1,5 @@
+frontend> npm run dev
+backend> npx nodemon
 add this in mongodb
 [{
   "_id": {

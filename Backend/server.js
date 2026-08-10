@@ -32,10 +32,9 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('❌ MongoDB connection error:', err.message));
 
 // Routes
-const menuRoutes = require('./routes/menuroutes'); 
 const authRoutes = require('./routes/authroutes');
-const orderRoutes = require('./routes/orderroutes'); // Make sure this file exists in ./routes/
-const foodRoutes=require('./routes/foodroutes')
+const orderRoutes = require('./routes/orderroutes');
+const foodRoutes = require('./routes/foodroutes');
 
 app.use('/api/menu', foodRoutes);
 app.use('/api/auth', authRoutes);

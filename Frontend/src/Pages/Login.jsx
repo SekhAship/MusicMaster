@@ -164,11 +164,10 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 px-4 rounded-lg font-semibold text-lg shadow-lg ${
-                  loading
+                className={`w-full py-3 px-4 rounded-lg font-semibold text-lg shadow-lg ${loading
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 hover:scale-105"
-                }`}
+                  }`}
               >
                 {loading ? "Signing in..." : "Sign In"}
               </button>
@@ -178,7 +177,7 @@ const Login = () => {
             <div className="mt-8 text-center">
               <p className="text-gray-600">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-purple-600 hover:text-purple-800 font-semibold">
+                <Link to="/register" className="text-purple-600 hover:text-purple-800 font-semibold">
                   Sign up here
                 </Link>
               </p>

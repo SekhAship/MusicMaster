@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <h3 className="text-xl font-bold">Music Haven</h3>
+              <h3 className="text-xl font-bold">MusicMaster</h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Your premier destination for quality musical instruments. From beginner to professional,

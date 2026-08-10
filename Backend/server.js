@@ -41,9 +41,13 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-// Server Start
+// Server Start — listen locally, export for Vercel serverless
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`🔗 MongoDB URI: ${process.env.MONGO_URI}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🔗 MongoDB URI: ${process.env.MONGO_URI}`);
+  });
+}
+
+module.exports = app;

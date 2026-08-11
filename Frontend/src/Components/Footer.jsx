@@ -125,7 +125,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center space-x-4 text-gray-400 text-sm">
               <span>📞 1-800-MUSIC-01</span>
-              <span>✉️ support@musichaven.com</span>
+              <span>✉️ support@MusicMaster.com</span>
             </div>
           </div>
         </div>

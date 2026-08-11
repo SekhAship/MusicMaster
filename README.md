@@ -4,7 +4,7 @@ MusicMaster is a modern and responsive online music store designed for music lov
 
 ## 🌐 Live Website
 
-https://musicmaster.vercel.app
+https://music-masters-hazel.vercel.app/
 
 ## ✨ Features
 

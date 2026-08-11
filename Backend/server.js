@@ -14,10 +14,34 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch((err) => console.error('❌ MongoDB connection error:', err.message));
+// MongoDB Serverless Connection Caching
+let cachedDb = null;
+
+async function connectToDatabase() {
+  if (cachedDb && mongoose.connection.readyState === 1) {
+    return cachedDb;
+  }
+  
+  mongoose.set('bufferCommands', false);
+
+  const db = await mongoose.connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 5000,
+  });
+  cachedDb = db;
+  console.log('✅ MongoDB connected');
+  return db;
+}
+
+// Ensure DB is connected before handling any API route
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (err) {
+    console.error('❌ DB connection error:', err.message);
+    res.status(500).json({ message: 'Database connection failed: ' + err.message });
+  }
+});
 
 // Routes
 const authRoutes = require('./routes/authroutes');
